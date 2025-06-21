@@ -34,8 +34,12 @@ Device Info: v2sil-39-rc1
 
 See also: [Why is this really bricked?](UDMProBicked.md)
 
-See also: [Can this be fixed?](UDMProFix.md)
-
 See also: [What can we do so far?](UDMProCommands.md)
 
-See also: [Detailed Board Information](BoardInformation.md)
+See also: [Detailed Board Information](UDMProBoardInfo.md)
+
+See also: [Can this be fixed?](UDMProFix.md)
+
+See also: [How can I get uBoot firmware?](UDMProExtractFirmware.md)
+
+See also: [How can I connect a console cable?](UDMProConsoleCable.md)

@@ -1,5 +1,8 @@
 # Extract Firmware
 
+## Download pre-extracted firmware
+Download file [here](Firmware/)
+
 ## Extracting Recovery firmware from a working UDM-Pro
 If you have the luxuary of a working UDMPro you can connect over SSH and configure a TFTP server to receive the firmware dump.
 

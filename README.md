@@ -32,7 +32,10 @@ Device ID = a324
 Device Info: v2sil-39-rc1
 ```
 
-What caused this?
+See also: [Why is this really bricked?](UDMProBicked.md)
 
+See also: [Can this be fixed?](UDMProFix.md)
 
-[Board Information](BoardInformation.md)
+See also: [What can we do so far?](UDMProCommands.md)
+
+See also: [Detailed Board Information](BoardInformation.md)

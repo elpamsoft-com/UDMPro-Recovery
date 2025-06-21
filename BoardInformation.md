@@ -12,4 +12,4 @@
 | M   | Annapurna Labs AL324</br>Cortex A57         | O   | TBA         |
 
 
-![alt text](https://github.com/elpamsoft-com/UDMPro-Recovery/blob/a29810ae2643b0e97c9cad9502666dbc3a402e63/UDMPro-Board.png "UDM-Pro Board")
+![alt text](Diagrams/UDMPro-Board.png "UDM-Pro Board")

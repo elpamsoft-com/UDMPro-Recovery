@@ -7,14 +7,14 @@ Power cycle the UDM and see if it boots. If still broken, remove the power cable
 
 ### 2. Little bit bricked
 Try the official "Reset" button recovery procedure.
-[[Official Link](https://help.ui.com/hc/en-us/articles/360043360253-UniFi-Recovery-Mode)]
+[Official Recovery Link](https://help.ui.com/hc/en-us/articles/360043360253-UniFi-Recovery-Mode)
 
 ### 3. Really bricked
 If no network link (the little light on the network port) during the "Reset" button recovery procedure it might be really bricked.
 
 The only way to confirm "Really bricked" is to connect a serial console cable to the board and watch the console during boot.
 
-[Link to Console Cable Guide]
+[Connect using console connector](UDMProConsoleCable.md)
 
 A "Really Bricked" device will show the following on boot:
 ```
@@ -33,3 +33,6 @@ Device Info: v2sil-39-rc1
 ```
 
 What caused this?
+
+
+[Board Information](BoardInformation.md)

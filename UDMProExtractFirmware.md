@@ -18,7 +18,7 @@ rm /volume1/recovery.bin
 Download a [UDMPro firmware](https://ui.com/download/software/udm-pro) 
 
 Use a hex editor to find the uBoot offset and length.
-1. Find the text "uboot"
+1. Find the text "PARTuboot"
 2. Record the length in hex (6 digits)
 3. Find the uboot offset start
 ![alt text](Diagrams/UDMPro-uBootExtract.png "UDM-Pro uBoot Hex")
@@ -39,11 +39,45 @@ $bytesToExtract = 1469668
 $outputPath = "C:\Path\To\uboot-4.1.12.bin"
 
 try {
+    Write-Host "Extracting $bytesToExtract bytes from offset $offset to $outputPath"
     $fileBytes = [System.IO.File]::ReadAllBytes($filePath)
     $extractedBytes = $fileBytes | Select-Object -Skip $offset -First $bytesToExtract
-
     [System.IO.File]::WriteAllBytes($outputPath, $extractedBytes)
+    Write-Host "Successfully extracted $bytesToExtract bytes from offset $offset to $outputPath"
+} catch {
+    Write-Error "Error extracting file: $($_.Exception.Message)"
+}
+```
 
+## Extracting Recovery from a downloaded UDM-Pro firmware
+Download a [UDMPro firmware](https://ui.com/download/software/udm-pro) 
+
+Use a hex editor to find the uBoot offset and length.
+1. Find the text "PARTkernel" (See Image)
+2. Record the length in hex (6 digits - See Image)
+3. Find the Recovery offset starting at "D0 0D FE ED" (See Image)
+![alt text](Diagrams/UDMPro-RecoveryExtract.png "UDM-Pro Recovery Hex")
+4. Convertboth Hex numbers to Dec
+5. Recovery Length hex=c2 ec c6 [converted](https://www.rapidtables.com/convert/number/hex-to-decimal.html?x=C2ECC6) to decimal is 12774598
+6. Recovery offset hex=16 fb e0 [converted](https://www.rapidtables.com/convert/number/hex-to-decimal.html?x=16FBE0) to decimal is 1506272
+
+Linux
+```
+dd if=e2cf-udmpro-2.4.27.bin of=recovery-2.4.27.bin bs=1 skip=1506272 count=12774598 conv=notrunc
+```
+
+Windows Powershell
+```
+$filePath = "C:\Path\To\e2cf-udmpro-2.4.27.bin"
+$offset = 1506272
+$bytesToExtract = 12774598
+$outputPath = "C:\Path\To\recovery-2.4.27.bin"
+
+try {
+    Write-Host "Extracting $bytesToExtract bytes from offset $offset to $outputPath"
+    $fileBytes = [System.IO.File]::ReadAllBytes($filePath)
+    $extractedBytes = $fileBytes | Select-Object -Skip $offset -First $bytesToExtract
+    [System.IO.File]::WriteAllBytes($outputPath, $extractedBytes)
     Write-Host "Successfully extracted $bytesToExtract bytes from offset $offset to $outputPath"
 } catch {
     Write-Error "Error extracting file: $($_.Exception.Message)"

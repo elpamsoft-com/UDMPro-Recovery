@@ -41,8 +41,10 @@ See also: [What can we do so far?](UDMProCommands.md)
 
 See also: [Detailed Board Information](UDMProBoardInfo.md)
 
+See also: [Firmware Information](UDMProFirmwareVersions.md)
+
 See also: [Can this be fixed?](UDMProFix.md)
 
-See also: [How can I get uBoot firmware?](UDMProExtractFirmware.md)
+See also: [uBoot & Recovery firmware?](UDMProExtractFirmware.md)
 
 See also: [How can I connect a console cable?](UDMProConsoleCable.md)

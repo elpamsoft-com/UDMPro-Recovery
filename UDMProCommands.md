@@ -1,7 +1,7 @@
 # What has been tried already?
 #### WARNING: Updating or alterting firmware is dangerous
 
-## The corrupt uBoot theory
+## The corrupt u-boot theory
 Both rolling back uBoot firmware and updating to the latest versions have proven fruitless.
 
 The uBoot is stored on the 8MB MX25U6435F chip. This chip is devided into 6 partitions.
@@ -34,9 +34,39 @@ SF: Detected MX25U6435F with page size 256 Bytes, erase size 4 KiB, total 8 MiB
  7 | 000005 (           UBOOT) |        0 |    uboot | Current | 000ab000 | 00115000
  8 | 000007 (       UBOOT_ENV) |        0 | uboot-en | Current | 001c0000 | 00010000
  9 | 000008 (   UBOOT_ENV_RED) |        0 | uboot-re | Current | 001d0000 | 00230000
- ```
+```
 
 ##### WARNING: During testing I managed to "Extra brick" my test UDMPro a few time that required removing the MX25U6435F chip and using a TL866II to reflash a new uBoot.
+
+## Updating u-boot
+1. Download a u-boot image ([see here](Firmware/))
+2. Connect via [serial cable](UDMProConsoleCable.md)
+3. Using something that supports YMODEM (eg. [ExtraPutty](https://sourceforge.net/projects/extraputty/)) connect to the COM port
+4. Boot the UDMPro and at the prompt type "run bootupdy"
+5. In ExtraPutty top menu, select "File Transfer", "YMODEM", then "Send File"
+6. Select the Recovery BIN file and send it, this should take 5min.
+7. Type the command "run delenv"
+7. Type the command "reset"
+
+```
+ALPINE_UBNT_UDM_ALL> run bootupdy
+>> Use YModem to upload the boot image binary...
+## Ready for binary (ymodem) download to 0x08000000 at 115200 bps...
+CCCxyzModem - CRC mode, 1(SOH)/1471(STX)/0(CAN) packets, 5 retries
+## Total Size      = 0x0016fa5c = 1505884 Bytes
+SF: Detected MX25U6435F with page size 256 Bytes, erase size 4 KiB, total 8 MiB
+SF: 1507328 bytes @ 0x0 Erased: OK
+device 0 offset 0x0, size 0x16fa5c
+SF: 1505884 bytes @ 0x0 Written: OK
+bootupd done
+Notice: Changes in default environment variables will only take effect once the
+environment variables are deleted from flash using the delenv script
+ALPINE_UBNT_UDM_ALL> run delenv
+SF: Detected MX25U6435F with page size 256 Bytes, erase size 4 KiB, total 8 MiB
+SF: 8192 bytes @ 0x1c0000 Erased: OK
+SF: 8192 bytes @ 0x1d0000 Erased: OK
+ALPINE_UBNT_UDM_ALL>reset
+```
 
 ## A corrupt EEPROM theory
 This is the 64KB AT24C64D EEPROM found at I2C Address 0x57 and read at boot. If this chip is corrupt the SBL (secondary boot loader) fails to load at all.
@@ -55,3 +85,7 @@ Booting to recovery does not seem to be very helpful and does not restore the mi
 7. Type the command "bootm"
 
 You can also upload a new uBoot BIN using simular commands, but you are likely to make the device worse if you try with an old uboot-1 build.
+
+```
+
+```

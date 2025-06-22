@@ -87,5 +87,10 @@ Booting to recovery does not seem to be very helpful and does not restore the mi
 You can also upload a new uBoot BIN using simular commands, but you are likely to make the device worse if you try with an old uboot-1 build.
 
 ```
-
+ALPINE_UBNT_UDM_ALL> loady
+## Ready for binary (ymodem) download to 0x08000000 at 115200 bps...
+CCCCxyzModem - CRC mode, 1(SOH)/12476(STX)/0(CAN) packets, 6 retries
+## Total Size      = 0x00c2ecc6 = 12774598 Bytes
+ALPINE_UBNT_UDM_ALL> bootm
 ```
+See the Recovery boot output [here](UDMPro-RecoveryOutput.md)

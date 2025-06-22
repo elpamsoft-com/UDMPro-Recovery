@@ -18,8 +18,8 @@ rm /volume1/recovery.bin
 Download a [UDMPro firmware](https://ui.com/download/software/udm-pro) 
 
 Use a hex editor to find the uBoot offset and length.
-1. Find the text "PARTuboot"
-2. Record the length in hex (6 digits)
+1. Find the text "PARTuboot" is older or "FILEuboot" (See Image)in newer firmware.
+2. Record the length in hex (6 digits - See Image)
 3. Find the uboot offset start
 ![alt text](Diagrams/UDMPro-uBootExtract.png "UDM-Pro uBoot Hex")
 4. Convertboth Hex numbers to Dec
@@ -53,7 +53,7 @@ try {
 Download a [UDMPro firmware](https://ui.com/download/software/udm-pro) 
 
 Use a hex editor to find the uBoot offset and length.
-1. Find the text "PARTkernel" (See Image)
+1. Find the text "PARTkernel" in older or "FILEkernel" (See Image) in newer firmware.
 2. Record the length in hex (6 digits - See Image)
 3. Find the Recovery offset starting at "D0 0D FE ED" (See Image)
 ![alt text](Diagrams/UDMPro-RecoveryExtract.png "UDM-Pro Recovery Hex")

@@ -3,7 +3,7 @@
 My Dream Machine Pro is not booting what is wrong?
 
 ### 1. Not booting after an update
-Power cycle the UDM and see if it boots. If still broken, remove the power cable for 20min and try boot agin.
+Power cycle the UDM and see if it boots. If still broken, remove the power cable for 20min and try boot again.
 
 ### 2. Little bit bricked
 Try the official "Reset" button recovery procedure.
@@ -16,7 +16,8 @@ The only way to confirm "Really bricked" is to connect a serial console cable to
 
 [Connect using console connector](UDMProConsoleCable.md)
 
-A "Really Bricked" device will show the following on boot:
+A "Really Bricked" device will show the following "I2C Preload Disabled!" on boot:
+
 ```
 agent_wakeup v2.10
 I2C Preload Disabled!
@@ -24,7 +25,9 @@ EEPROM Revision ID = 00
 Device ID = 0000
 Device Info:
 ```
-If it is not "Really Bricked" the device will show the following during boot:
+
+If it is not "Really Bricked" the device will show the following during boot, and you can recover using the "Little bit bricked" recovery, or something simular.
+
 ```
 agent_wakeup v2.10
 EEPROM Revision ID = 39

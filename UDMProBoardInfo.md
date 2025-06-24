@@ -17,5 +17,6 @@ AL324_SOC --PCIe--> ASM1042A --USB3--> GL3224E --> eMMC
 | F   | AT24C64D</br>64KB EEPROM</br>I2C Address 0x57         | N   | TCA9546A</br>I2C Expander |
 | M   | AR8033-AL1A</br>WAN 1G Ethernet | O   | TXB0104</br>Voltage-Level Translator |
 
+rtc-s35390a - Realtime clock
 
 ![alt text](Diagrams/UDMPro-Board.png "UDM-Pro Board")

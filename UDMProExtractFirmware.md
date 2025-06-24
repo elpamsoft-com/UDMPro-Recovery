@@ -53,7 +53,7 @@ try {
 Download a [UDMPro firmware](https://ui.com/download/software/udm-pro) 
 
 Use a hex editor to find the uBoot offset and length.
-1. Find the text "PARTkernel" in older or "FILEkernel" (See Image) in newer firmware.
+1. Find the text "PARTkernel" in older or "FILEkernel" (See Image) in newer firmware. Older fimrware have a dedicated "PARTrecovery".
 2. Record the length in hex (6 digits - See Image)
 3. Find the Recovery offset starting at "D0 0D FE ED" (See Image)
 ![alt text](Diagrams/UDMPro-RecoveryExtract.png "UDM-Pro Recovery Hex")
@@ -86,6 +86,8 @@ try {
 
 ## Extract EEPROM from a working UDM-Pro
 A copy of the 64KB EEPROM AT24C64D found at I2C Address 0x57 can be downloaded from a working UDM-Pro you can connect over SSH and configure a TFTP server to receive the firmware dump.
+
+This EEPROM is different from the EEPROM partition found on the 8MB SPI chip. (See [Board Info](UDMProBoardInfo.md))
 
 To do this you must mount the AT24C64D chip at I2C address 0x57. dump its contents to a file, then unmount the chip again.
 

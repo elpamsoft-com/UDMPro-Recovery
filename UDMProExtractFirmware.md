@@ -87,9 +87,11 @@ try {
 ## Extract EEPROM from a working UDM-Pro
 A copy of the 64KB EEPROM AT24C64D found at I2C Address 0x57 can be downloaded from a working UDM-Pro you can connect over SSH and configure a TFTP server to receive the firmware dump.
 
-This EEPROM is different from the EEPROM partition found on the 8MB SPI chip. (See [Board Info](UDMProBoardInfo.md))
+###### This data seems to be the same between all board models examined (113-00723-08, 113-00723-10, 113-00723-11).
 
-To do this you must mount the AT24C64D chip at I2C address 0x57. dump its contents to a file, then unmount the chip again.
+###### This EEPROM is different from the mtd4 EEPROM partition found on the 8MB SPI chip. (See [Board Info](UDMProBoardInfo.md))
+
+To do this, on a working UDM Pro, you must mount the AT24C64D chip at I2C address 0x57. dump its contents to a file, then unmount the chip again.
 
 ```
 echo 24c64 0x57 > /sys/bus/i2c/devices/i2c-2/new_device
